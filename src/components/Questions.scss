@@ -9,9 +9,25 @@
   background-color: #f9f9f9;
 }
 
-.item-list h2 {
-  text-align: center;
-  color: #333;
+.title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+}
+
+.title-section h2 {
+  color: #660000;
+  text-decoration: underline;
+}
+
+.title-section .addQuestion {
+  align-items: right;
+  color: white;
+  padding: 5px;
+  background-color: green;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 .item-list ul {
@@ -35,6 +51,10 @@
 .item-list span {
   flex: 1;
   text-align: center;
+}
+
+.item-list span img {
+  width: 40px;
 }
 
 .item-list button {

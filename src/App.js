@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Questions from "./components/Questions";
 import Stats from "./components/Stats";
+import AddQuestion from "./components/AddQuestion";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             </>
           }
         />
+        <Route path="/addQuestion" element={<AddQuestion />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/stats" element={<Stats />} />
       </Routes>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Questions.scss";
+import { Link } from "react-router-dom";
 
 function Questions() {
   const [items, setItems] = useState([]);
@@ -30,18 +31,31 @@ function Questions() {
     return <p>{error}</p>;
   }
 
-  const handleDelete = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:3000/items/${id}`);
+    fetchItems();
   };
 
   return (
     <div className="item-list">
-      <h2>Item List</h2>
+      <div className="title-section">
+        <h2>Questions List</h2>
+        <Link className="addQuestion" to="/addQuestion">
+          Add Question
+        </Link>
+      </div>
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <span>ID: {item.item_id}</span> |<span>Question: {item.name}</span>{" "}
-            |<span>Answer: {item.price}</span>
+            <span>ID: {item.id}</span> |
+            <span>
+              Question: <img src={item.question} alt="test" />
+            </span>{" "}
+            |
+            <span>
+              Answer: <img src={item.answer} alt="test" />
+            </span>
+            <span>Answer: {item.buysell}</span>
             <button onClick={() => handleDelete(item.id)}>Delete</button>
           </li>
         ))}
