@@ -15,8 +15,8 @@ function Header() {
         <Link to="/questions">
           <button>Questions</button>
         </Link>
-        <Link to="/stats">
-          <button>Stats</button>
+        <Link to="/studyMaterial">
+          <button>StudyMaterial</button>
         </Link>
       </div>
     </header>

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Questions.scss";
 import { Link } from "react-router-dom";
 
-function Questions() {
+function StudyMaterial() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/easy/items");
+      const response = await axios.get("http://localhost:3000/study/items");
       setItems(response.data);
       setLoading(false);
     } catch (err) {
@@ -32,30 +31,31 @@ function Questions() {
   }
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3000/items/${id}`);
+    await axios.delete(`http://localhost:3000/study/items/${id}`);
     fetchItems();
   };
 
   return (
     <div className="item-list">
       <div className="title-section">
-        <h2>Questions List</h2>
-        <Link className="addQuestion" to="/addQuestion">
-          Add Question
+        <h2>Study Materials</h2>
+        <Link className="addQuestion" to="/addStudy">
+          Add Study Material
         </Link>
       </div>
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <span>ID: {item.id}</span> |
+            <span>ID: {item.id}</span> |<span>Title: {item.title}</span>
             <span>
-              Question: <img src={item.question} alt="test" />
+              Thumbnail: <img src={item.thumbnail} alt="test" />
             </span>{" "}
             |
             <span>
-              Answer: <img src={item.answer} alt="test" />
+              ExampleImage: <img src={item.exampleimage} alt="test" />
             </span>
-            <span>Answer: {item.buysell}</span>
+            <span>Description: {item.description}</span>
+            <span>Type: {item.type}</span>
             <button onClick={() => handleDelete(item.id)}>Delete</button>
           </li>
         ))}
@@ -64,4 +64,4 @@ function Questions() {
   );
 }
 
-export default Questions;
+export default StudyMaterial;
