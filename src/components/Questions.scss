@@ -1,72 +1,76 @@
 /* ItemList.css */
 .item-list {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #f9f9f9;
 }
 
 .title-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 5%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 5%;
 }
 
 .title-section h2 {
-  color: #660000;
-  text-decoration: underline;
+	color: #660000;
+	text-decoration: underline;
 }
 
 .title-section .addQuestion {
-  align-items: right;
-  color: white;
-  padding: 5px;
-  background-color: green;
-  border-radius: 10px;
-  text-decoration: none;
+	align-items: right;
+	color: white;
+	padding: 5px;
+	background-color: green;
+	border-radius: 10px;
+	text-decoration: none;
 }
 
 .item-list ul {
-  list-style-type: none;
-  padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 
 .item-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin: 10px 0;
-  border-bottom: 1px solid #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin: 10px 0;
+	border-bottom: 1px solid #ddd;
 }
 
 .item-list li:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .item-list span {
-  flex: 1;
-  text-align: center;
+	flex: 1;
+	text-align: center;
 }
 
 .item-list span img {
-  width: 40px;
+	width: 40px;
 }
 
 .item-list button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+	background-color: #ff4d4d;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 .item-list button:hover {
-  background-color: #ff1a1a;
+	background-color: #ff1a1a;
+}
+
+.item-image:hover {
+	transform: scale(7);
 }
