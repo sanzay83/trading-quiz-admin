@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AddQuestion.scss";
+import { API_URL } from "../config";
 
 function AddStudyMaterial() {
   const [id, setId] = useState("");
@@ -10,13 +11,12 @@ function AddStudyMaterial() {
   const [exampleimage, setExampleImage] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleAddStudyMaterial = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/study/items", {
+      await axios.post(`${API_URL}/study/items`, {
         title,
         thumbnail,
         exampleimage,
@@ -24,10 +24,9 @@ function AddStudyMaterial() {
         type,
         id,
       });
-      setMessage("Add Study Material Successful");
       navigate("/studyMaterial");
     } catch (error) {
-      setMessage("Study Material adding failed");
+      console.log(error);
     }
   };
   return (

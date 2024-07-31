@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config";
 
 function StudyMaterial() {
   const [items, setItems] = useState([]);
@@ -9,7 +10,7 @@ function StudyMaterial() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/study/items");
+      const response = await axios.get(`${API_URL}/study/items`);
       setItems(response.data);
       setLoading(false);
     } catch (err) {
@@ -31,7 +32,7 @@ function StudyMaterial() {
   }
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3000/study/items/${id}`);
+    await axios.delete(`${API_URL}/study/items/${id}`);
     fetchItems();
   };
 
