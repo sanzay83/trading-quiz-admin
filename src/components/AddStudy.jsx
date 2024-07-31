@@ -9,6 +9,7 @@ function AddStudyMaterial() {
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [exampleimage, setExampleImage] = useState("");
+  const [exampleimage2, setExampleImage2] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function AddStudyMaterial() {
         title,
         thumbnail,
         exampleimage,
+        exampleimage2,
         description,
         type,
         id,
@@ -70,6 +72,15 @@ function AddStudyMaterial() {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="exampleimage2">Example Image2:</label>
+          <input
+            type="text"
+            id="exampleimage2"
+            value={exampleimage2}
+            onChange={(e) => setExampleImage2(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="description">Description:</label>
           <input
             type="text"
@@ -81,12 +92,17 @@ function AddStudyMaterial() {
 
         <div className="form-group">
           <label htmlFor="description">Type:</label>
-          <input
-            type="text"
+          <select
+            name="type"
             id="type"
             value={type}
             onChange={(e) => setType(e.target.value)}
-          />
+          >
+            <option value="P">Principle</option>
+            <option value="C">Candlesticks</option>
+            <option value="S">Trading Patterns</option>
+            <option value="T">Smart Money Concept</option>
+          </select>
         </div>
         <button type="submit">Add Study Material</button>
       </form>

@@ -6,23 +6,23 @@ import { API_URL } from "../config";
 
 function Questions() {
   const [items, setItems] = useState([]);
+  const [difficulty, setDifficulty] = useState("easy");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchItems = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/easy/items`);
-      setItems(response.data);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/${difficulty}/items`);
+        setItems(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
     fetchItems();
-  }, []);
+  }, [difficulty, loading]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -33,14 +33,20 @@ function Questions() {
   }
 
   const handleDelete = async (id) => {
-    await axios.delete(`${API_URL}/items/${id}`);
-    fetchItems();
+    await axios.delete(`${API_URL}/${difficulty}/items/${id}`);
+    setLoading(true);
+  };
+
+  const handleDifficulty = (value) => {
+    setDifficulty(value);
   };
 
   return (
     <div className="item-list">
       <div className="title-section">
         <h2>Questions List</h2>
+        <button onClick={() => handleDifficulty("easy")}>Easy</button>
+        <button onClick={() => handleDifficulty("hard")}>Hard</button>
         <Link className="addQuestion" to="/addQuestion">
           Add Question
         </Link>

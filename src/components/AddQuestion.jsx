@@ -9,6 +9,7 @@ function AddQuestion() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [buysell, setBuySell] = useState("1");
+  const [difficulty, setDifficulty] = useState("easy");
   const navigate = useNavigate();
 
   const handleAddQuestion = async (e) => {
@@ -19,6 +20,7 @@ function AddQuestion() {
         question,
         answer,
         buysell,
+        difficulty,
       });
       navigate("/questions");
     } catch (error) {
@@ -65,6 +67,14 @@ function AddQuestion() {
           >
             <option value="1">Buy</option>
             <option value="0">Sell</option>
+          </select>
+          <select
+            onChange={(e) => setDifficulty(e.target.value)}
+            name="difficulty"
+            id="difficulty"
+          >
+            <option value="easy">Easy</option>
+            <option value="hard">Hard</option>
           </select>
         </div>
         <button type="submit">Add Question</button>

@@ -44,19 +44,27 @@ function StudyMaterial() {
           Add Study Material
         </Link>
       </div>
+
       <ul>
+        <li>
+          <span>ID</span>
+          <span>Title</span> <span>Thumbnails</span>
+          <span>Example1</span> <span>Example2</span> <span>Type</span>
+          <span>Delete</span>
+        </li>
         {items.map((item) => (
           <li key={item.id}>
-            <span>ID: {item.id}</span> |<span>Title: {item.title}</span>
+            <span>{item.id}</span> <span>{item.title}</span>
             <span>
-              Thumbnail: <img src={item.thumbnail} alt="test" />
+              <img src={item.thumbnail} alt="test" />
             </span>{" "}
-            |
             <span>
-              ExampleImage: <img src={item.exampleimage} alt="test" />
+              <img src={item.exampleimage} alt="test" />
             </span>
-            <span>Description: {item.description}</span>
-            <span>Type: {item.type}</span>
+            <span>
+              <img src={item.exampleimage2} alt="test" />
+            </span>
+            <span>{item.type}</span>
             <button onClick={() => handleDelete(item.id)}>Delete</button>
           </li>
         ))}
